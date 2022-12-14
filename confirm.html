@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <title>Confirmation page!</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-image: linear-gradient(to right, #ffffff, rgb(255, 161, 140));
+      }
+
+      #main {
+           /* border: 1px solid green; */
+           height: 383px;
+           width: 500px;
+           margin: auto;
+           margin-top: 20px;
+           background-color: rgb(247, 241, 241);
+           border-radius: 20px;
+           box-shadow: 5px 5px 10px gray;
+           padding: 2rem;
+          
+        }
+
+        #main h3{
+
+          text-align: center;
+        }
+
+        #main p{
+      
+           font-family:emoji; 
+           font-size: large;
+          color: gray;
+        }
+
+        #main label{
+          font-weight: bold;
+        }
+
+   .otp-input input{
+
+    margin: 25px;
+   }
+
+   #main button{
+  
+    margin-left: 90px !important;
+   }
+      
+
+   #error-box{
+    /* border: 1px solid gray; */
+    height: 100px;
+    width: 40%;
+    margin-left: 410px;
+    background: white;
+    border-radius: 20px;
+    float: left;
+     display: none;  
+
+   }
+
+   .error-inner-1{
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    height: 99px;
+    width: 10px;
+    background: rgb(255, 98, 98);
+   }
+
+   .error-img{
+    margin-left: 30px;
+   }
+  .validation-error-text{
+    
+   /* border: 1px solid red; */
+   width: 280px; 
+   margin-left:150px ;
+   margin-top: -80px;
+   color: rgb(255, 98, 98);
+   
+   }
+
+   .error-close{
+
+    border: 0.5px solid rgb(238, 232, 232);
+    height: 99px;
+    width: 1px;
+    margin-left: 440px;
+    margin-top: -60px;
+   }
+
+   .error-close h5{
+
+    color: rgb(165, 161, 161);
+    margin-top: 40px;
+    margin-left: 20px;
+   }
+
+
+   /*  ////////////////////////////////////////////////////////////////////////////////////////////*/
+
+   #success-box{
+    /* border: 1px solid gray; */
+    height: 100px;
+    width: 40%;
+    margin-left: 410px;
+    margin-bottom: 10px;
+    background: white;
+    border-radius: 20px;
+      display: none; 
+    /* float: left; */
+
+   }
+
+   .sucess-inner-1{
+/* 
+    border: 1px solid black; */
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    height: 99px;
+    width: 10px;
+    background: rgb(81, 241, 81);
+   }
+
+   .sucess-img{
+    margin-left: 30px;
+   }
+
+
+  .validation-sucess-text{
+    
+   /* border: 1px solid red; */
+   width: 280px; 
+   margin-left:150px ;
+   margin-top: -80px;
+   color: rgb(33, 228, 33);
+   
+   }
+
+   .validation-close{
+
+    border: 0.5px solid rgb(238, 232, 232);
+    height: 99px;
+    width: 1px;
+    margin-left: 440px;
+    margin-top: -60px;
+   }
+
+   .validation-close h5{
+
+    color: rgb(165, 161, 161);
+    margin-top: 40px;
+    margin-left: 20px;
+   }
+   /*///////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+   #warning{
+/* 
+    border: 1px solid black; */
+    width: 434px;
+    margin-left: 468px;
+    font-size: x-large;
+    font-weight: bold;
+    color: red;
+
+   }
+
+
+
+   /*  media */
+   @media screen  and (max-width:800px){
+
+    body {
+      
+        background-image: none;
+        background-color: lavenderblush;
+      }
+    #main {
+      width: 90vw;
+      
+    }
+
+    .otp-input input {
+    margin: 4px;
+     }
+
+   #main button {
+    margin-left: 38px !important;
+   }
+
+   #success-box{
+    height: 59px;
+    width: 95%; 
+    /* margin: 30px; */
+    margin-left: 7px;
+    margin-bottom: 10px;
+    background: white;
+    border-radius: 20px;
+    display: none;
+
+   }
+
+
+   .sucess-inner-1{
+
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    height: 58px;
+    width: 10px;
+    background: rgb(81, 241, 81);
+   }
+
+   .sucess-img img{
+  
+    height: 58px !important;
+    width: 59px !important;
+   }
+
+   .validation-sucess-text{
+    
+    /* border: 1px solid red; */
+    width: 280px; 
+    margin-left:94px ;
+    margin-top: -43px;
+    color: rgb(33, 228, 33);
+    
+    }
+   .validation-close{
+    margin-left: 0%;
+   }
+
+  .validation-close h5{
+ display: none;
+   }
+
+
+
+   
+   #error-box{
+
+    height: 59px;
+    width: 95%; 
+    /* margin: 30px; */
+    margin-left: 7px;
+    margin-bottom: 10px;
+    background: white;
+    border-radius: 20px;
+    display: none;
+
+   }
+
+
+   .error-inner-1{
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    height: 58px;
+    width: 10px;
+    background: rgb(255, 98, 98);
+   }
+
+   .error-img img{
+  
+  height: 58px !important;
+  width: 59px !important;
+ }
+
+ .validation-error-text{
+    
+    width: 280px; 
+    margin-left:94px ;
+    margin-top: -43px;
+    color: rgb(255, 98, 98);
+    
+    }
+
+
+
+    .error-close{
+      margin-left: 0%;
+
+}
+
+.error-close h5{
+  display: none;
+
+}
+
+
+#warning{
+/* 
+    border: 1px solid black; */
+    width: 434px;
+    margin-left: 0px;
+    /* padding: 1rem; */
+    font-size: x-large;
+    font-weight: bold;
+    color: red;
+
+   }
+
+
+ }
+
+   /* media */
+
+    </style>
+  </head>
+  <body>
+
+    <div id="main">
+      <h3>Email verification</h3>
+      <p>Dear <span id="name"> </span>
+        Thank you for your inquiry
+        A four digit verification number has been sent to your Email : <span id="email"></span><br>
+        Please enter it in the following box and submit for confirmation:</p>
+
+        <div class="d-flex flex-row otp-input">
+          <input type="text" id="otp1" class="form-control">
+          <input type="text" id="otp2"class="form-control">
+          <input type="text" id="otp3" class="form-control">
+          <input type="text" id="otp4" class="form-control">
+
+        </div>
+        <br>
+        <button type="button" class="btn btn-outline-success" id="validate" onclick="validate()">Validate</button>
+        <button type="button" class="btn btn-outline-danger" onclick="history.back()">&nbsp; Back &nbsp;  &nbsp;  </button>
+
+    </div>
+<br>
+    
+
+<div id="warning"> </div>
+    <div id="success-box">
+      <div class="sucess-inner-1">
+        <div class="sucess-img">
+          <img src="check.png" alt="" style="height: 98px; width: 98px;">
+        </div>
+      </div>
+      <div class="validation-sucess-text">
+        <h3>Validation Successful!</h3>
+      </div>
+
+      <div class="validation-close"> 
+    <h5>CLOSE</h5>
+      </div>
+    </div>
+
+    <div id="error-box">
+      <div class="error-inner-1">
+        <div class="error-img">
+          <img src="remove.png" alt="" style="height: 98px; width: 98px;">
+        </div>
+      </div>
+      <div class="validation-error-text">
+        <h3>Validation Failed!</h3>
+      </div>
+
+      <div class="error-close"> 
+    <h5>CLOSE</h5>
+      </div>
+    </div>
+
+
+
+<script>
+
+            var name = sessionStorage.getItem("firstName");
+            var otp = parseInt(sessionStorage.getItem("Otp"));
+            var email = sessionStorage.getItem("Email");
+            var name2 = name.split(" ");
+            var input_otp;
+            var count = 0;
+
+             alert("Your OTP is :"+" "+otp);
+
+            document.getElementById('name').innerHTML = name2[0];
+            document.getElementById('email').innerHTML = " " + email + " ";
+
+          function validate(){ 
+
+            var collect_otp1= document.getElementById('otp1').value;
+            var collect_otp2= document.getElementById('otp2').value;
+            var collect_otp3= document.getElementById('otp3').value;
+            var collect_otp4= document.getElementById('otp4').value;
+
+            var str_otp = collect_otp1 +  collect_otp2 + collect_otp3 + collect_otp4;
+            console.log( typeof str_otp)
+         
+                input_otp = parseInt(str_otp);
+
+                if (input_otp == otp) {
+                    document.getElementById('warning').style.display = "none";
+                    document.getElementById('success-box').style.display = "block";
+                    document.getElementById('error-box').style.display = "none";
+                    document.getElementById('validate').style.display = "none";
+                }
+
+                else if (input_otp != otp && count < 2) {
+                    count++;
+                    num = 3 - count;
+                    document.getElementById('warning').innerHTML = "Enter correct OTP," + " " + num + " " + "attempts left."
+                    // document.getElementById('otp').value = " ";
+                }
+
+                else if (input_otp != otp && count == 2) {
+                    document.getElementById('warning').style.display = "none";
+                    document.getElementById('error-box').style.display = "block";
+                    document.getElementById('success-box').style.display = "none";
+                    document.getElementById('validate').style.display = "none";
+                }
+            }
+</script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <title>Loan page</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        
+        <div class="col-8">
+          <h3>Bank Loan Application Form</h3>
+          
+          <form action="confirm.html" name="loan-form">
+            <label for="name" class="form-label"
+              >FULL NAME</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder=""
+              pattern="[a-zA-Z]{2,}[ ][a-zA-Z ]{2,}"
+              title="Format should be like: 'abc xyz'"
+              required
+            />
+
+            <label for="email" class="form-label" >Email address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder=""
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              title="Format should be like: 'motel@xyz.com'"
+              required
+            />
+
+            <label for="exampleFormControlInput3" class="form-label">PAN</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleFormControlInput3"
+              placeholder=""
+              maxlength="10"
+              pattern="[a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][0-9][0-9][0-9][0-9][a-zA-Z]"
+              title="Format should be like: 'ABCDE1234F'"
+              required
+            />
+
+            <br />
+            <div class="row justify-content-center">
+              <!--  -->
+              <div class="col-4 col-4-1">
+                <label for="amount" class="form-label">
+                  Enter Loan Amount</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="amount"
+                  placeholder=""
+                  maxlength="9"
+                  pattern="^[0-9]*$"
+                  required
+                />
+
+                <br />
+                <label for="year" class="form-label">
+                  Loan Tenure(Year) :</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="year"
+                  placeholder=""
+                  maxlength="2"
+                  pattern="^[0-9]*$"
+                  title="Format should be like: '1-99'"
+                  required
+                />
+
+                <br />
+                <label for="rate" class="form-label">
+                  Rate oF Int(per/year) :</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="rate"
+                  placeholder="8.5%"
+                  disabled
+                />
+
+        
+              </div>
+              <!--  -->
+
+              <div class="col-4 col-4-2">
+                <label for="" class="form-label">In Words :</label>
+                <br />
+                <span id="words"></span>
+              </div>
+            </div>
+
+            <br />
+
+            <div class="row justify-content-center">
+              <div class="col-6 col-6-media">
+                <span class="d-block p-2 bg-primary text-white emi-box" >Estimated EMI : <span id="result"></span></span>
+              </div>
+            </div>
+
+            <br />
+            <div class="row justify-content-center">
+              <div class="d-grid gap-2 col-6 mx-auto">
+                <button class="btn btn-primary" type="submit" onclick="submit_data()">submit</button>
+              </div>
+            </div>
+            <br />
+          </form>
+        </div>
+      
+      </div>
+    </div>
+
+
+    <script>
+      var amt;
+      var year;
+      var rate = 0.085;
+      var month;
+      var emi;
+      var otp;
+      var name;
+      var email;
+
+      function total_emi( ) {
+         amt = parseInt(document.getElementById("amount").value);
+       year = parseInt(document.getElementById("year").value);
+
+        month = parseInt(year * 12);
+        emi = parseInt((amt + amt * rate * year) / month);
+
+        document.getElementById("result").innerHTML =
+          "Rs." + " " + emi + " " + "/month";
+      }
+
+      document.getElementById('year').onkeyup = function () {
+           total_emi();
+      }
+
+
+      function submit_data() {
+            name = document.getElementById('name').value;
+            email = document.getElementById('email').value;
+            otp = Math.ceil(1000 + Math.random() * 10000);
+
+            sessionStorage.setItem("firstName", name);
+            sessionStorage.setItem("Email", email);
+            sessionStorage.setItem("Otp", otp);
+
+        }
+
+    </script>
+
+    <script src="loan.js"></script>
+
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
